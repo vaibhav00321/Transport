@@ -146,7 +146,7 @@ const Home = () => {
             </motion.p>
             <motion.div variants={slideUp} className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6">
               <button onClick={() => {navigate("/dashboard")}} className="px-8 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center">
-                Get Started <FiArrowRight className="ml-2" />
+                Explore Our Dashboard <FiArrowRight className="ml-2" />
               </button>
               <button className="px-8 py-3 rounded-lg border border-gray-700 hover:border-blue-400 hover:text-blue-400 transition-colors">
                 Learn More
