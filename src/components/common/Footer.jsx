@@ -4,7 +4,7 @@ const Footer = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">SwiftPost</h3>
+              <h3 className="text-xl font-bold mb-4">QTR</h3>
               <p className="text-gray-400">Modern logistics solutions for the digital age.</p>
             </div>
             

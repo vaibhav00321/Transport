@@ -14,7 +14,7 @@ const Sidebar = ({ activeTab, setActiveTab }) => {
   return (
     <div className="w-64 bg-white shadow-md hidden md:block">
       <div className="p-6">
-        <h1 className="text-xl font-bold text-blue-600">SwiftPost</h1>
+        <h1 className="text-xl font-bold text-blue-600">QTR</h1>
       </div>
       
       <nav className="mt-6">

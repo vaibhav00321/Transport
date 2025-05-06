@@ -6,7 +6,7 @@ const Header = () => {
     <header className="sticky top-0 z-50 bg-white shadow-sm">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <Link to="/" className="flex items-center">
-          <span className="text-2xl font-bold text-blue-600">SwiftPost</span>
+          <span className="text-2xl font-bold text-blue-600">QTR</span>
         </Link>
         
         <nav className="hidden md:flex space-x-8">

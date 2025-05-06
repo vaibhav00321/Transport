@@ -89,7 +89,7 @@ const Home = () => {
         >
           <FiTruck className="text-blue-400 text-2xl mr-2" />
           <span className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
-            SwiftPost
+            QTR
           </span>
         </motion.div>
 
@@ -187,7 +187,7 @@ const Home = () => {
         className="relative z-10 py-20 px-6 md:px-12 max-w-7xl mx-auto"
       >
         <motion.div variants={item} className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose <span className="text-blue-400">SwiftPost</span>?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Choose <span className="text-blue-400">QTR</span>?</h2>
           <p className="text-lg text-gray-400 max-w-2xl mx-auto">
             We're redefining logistics with cutting-edge technology and customer-first solutions.
           </p>
@@ -452,7 +452,7 @@ const Home = () => {
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Shipping?</h2>
           <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of businesses that trust SwiftPost for their shipping needs.
+            Join thousands of businesses that trust QTR for their shipping needs.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
             <button className="px-8 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg shadow-blue-500/20">
@@ -472,7 +472,7 @@ const Home = () => {
             <div>
               <div className="flex items-center mb-4">
                 <FiTruck className="text-blue-400 text-2xl mr-2" />
-                <span className="text-xl font-bold">SwiftPost</span>
+                <span className="text-xl font-bold">QTR</span>
               </div>
               <p className="text-gray-400">Modern logistics solutions for the digital age.</p>
             </div>
@@ -505,7 +505,7 @@ const Home = () => {
           </div>
           
           <div className="border-t border-gray-800 pt-8 text-center text-gray-500">
-            <p>© {new Date().getFullYear()} SwiftPost. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} QTR. All rights reserved.</p>
           </div>
         </div>
       </footer>
