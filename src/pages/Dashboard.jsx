@@ -5,6 +5,30 @@ import {
   FiHome, FiBell, FiUser, FiCalendar, FiBarChart2, 
   FiPlus, FiSearch, FiDownload, FiFilter, FiRefreshCw
 } from 'react-icons/fi';
+import { Line } from 'react-chartjs-2';
+import {
+  Chart as ChartJS,
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  Tooltip,
+  Legend,
+  Filler
+} from 'chart.js';
+
+// Register ChartJS components
+ChartJS.register(
+  LineElement,
+  PointElement,
+  LinearScale,
+  Title,
+  CategoryScale,
+  Tooltip,
+  Legend,
+  Filler
+);
 
 const Dashboard = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
@@ -402,13 +426,153 @@ const Dashboard = () => {
           {/* Quick Stats and Calendar */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
             {/* Delivery Performance */}
-            <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 lg:col-span-2">
-              <h3 className="text-lg font-semibold mb-4">Delivery Performance</h3>
-              <div className="h-64 bg-gray-700/30 rounded-lg flex items-center justify-center">
-                <span className="text-gray-400">Performance chart will appear here</span>
-              </div>
-            </div>
-            
+{/* Delivery Performance */}
+<div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700 lg:col-span-2">
+  <div className="flex justify-between items-center mb-4">
+    <h3 className="text-lg font-semibold">Delivery Performance</h3>
+    <div className="flex space-x-2">
+      <button className="px-3 py-1 text-xs bg-gray-700 hover:bg-gray-600 rounded-lg border border-gray-600">
+        Weekly
+      </button>
+      <button className="px-3 py-1 text-xs bg-blue-600 hover:bg-blue-700 rounded-lg">
+        Monthly
+      </button>
+    </div>
+  </div>
+  
+  <div className="h-64">
+    <Line
+      data={{
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [
+          {
+            label: 'On-Time Delivery Rate',
+            data: [82, 75, 89, 93, 78, 85],
+            backgroundColor: 'rgba(139, 92, 246, 0.2)',
+            borderColor: 'rgba(167, 139, 250, 1)',
+            borderWidth: 2,
+            pointBackgroundColor: 'rgba(167, 139, 250, 1)',
+            pointBorderColor: 'rgba(30, 41, 59, 1)',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            pointHoverBackgroundColor: 'rgba(196, 181, 253, 1)',
+            pointHoverBorderColor: 'rgba(30, 41, 59, 1)',
+            tension: 0.4,
+            fill: true
+          },
+          {
+            label: 'Avg. Delivery Time (days)',
+            data: [2.1, 2.4, 1.9, 1.7, 2.3, 2.0],
+            backgroundColor: 'rgba(74, 222, 128, 0.1)',
+            borderColor: 'rgba(74, 222, 128, 1)',
+            borderWidth: 2,
+            borderDash: [5, 5],
+            pointBackgroundColor: 'rgba(74, 222, 128, 1)',
+            pointBorderColor: 'rgba(30, 41, 59, 1)',
+            pointBorderWidth: 2,
+            pointRadius: 5,
+            pointHoverRadius: 7,
+            pointHoverBackgroundColor: 'rgba(134, 239, 172, 1)',
+            pointHoverBorderColor: 'rgba(30, 41, 59, 1)',
+            tension: 0.4,
+            yAxisID: 'y1'
+          }
+        ]
+      }}
+      options={{
+        maintainAspectRatio: false,
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top',
+            labels: {
+              color: 'rgba(209, 213, 219, 1)',
+              font: {
+                size: 12
+              },
+              padding: 20,
+              usePointStyle: true,
+              pointStyle: 'circle'
+            }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(30, 41, 59, 0.95)',
+            titleColor: 'rgba(209, 213, 219, 1)',
+            bodyColor: 'rgba(209, 213, 219, 1)',
+            borderColor: 'rgba(71, 85, 105, 1)',
+            borderWidth: 1,
+            padding: 12,
+            usePointStyle: true,
+            callbacks: {
+              label: function(context) {
+                let label = context.dataset.label || '';
+                if (label) {
+                  label += ': ';
+                }
+                if (context.parsed.y !== null) {
+                  label += context.datasetIndex === 0 ? 
+                    `${context.parsed.y}%` : 
+                    `${context.parsed.y} days`;
+                }
+                return label;
+              }
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: {
+              color: 'rgba(71, 85, 105, 0.3)',
+              drawBorder: false
+            },
+            ticks: {
+              color: 'rgba(156, 163, 175, 1)'
+            }
+          },
+          y: {
+            min: 50,
+            max: 100,
+            grid: {
+              color: 'rgba(71, 85, 105, 0.3)',
+              drawBorder: false
+            },
+            ticks: {
+              color: 'rgba(156, 163, 175, 1)',
+              callback: function(value) {
+                return value + '%';
+              }
+            }
+          },
+          y1: {
+            position: 'right',
+            min: 1,
+            max: 3,
+            grid: {
+              drawOnChartArea: false,
+              drawBorder: false
+            },
+            ticks: {
+              color: 'rgba(156, 163, 175, 1)',
+              callback: function(value) {
+                return value + ' days';
+              }
+            }
+          }
+        },
+        elements: {
+          line: {
+            borderWidth: 2
+          }
+        },
+        interaction: {
+          intersect: false,
+          mode: 'index'
+        }
+      }}
+    />
+  </div>
+</div>
             {/* Upcoming Deliveries */}
             <div className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl border border-gray-700">
               <h3 className="text-lg font-semibold mb-4">Upcoming Deliveries</h3>
